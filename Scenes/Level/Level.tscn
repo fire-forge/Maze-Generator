@@ -41,6 +41,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+
 [node name="MazeSquare" type="Node2D" parent="."]
 visible = false
 modulate = Color( 0.270588, 0.490196, 0.913725, 1 )
@@ -55,6 +59,7 @@ format = 1
 visible = false
 modulate = Color( 0.270588, 0.490196, 0.913725, 1 )
 script = ExtResource( 1 )
+size = Vector2( 15, 13 )
 
 [node name="Hexagons" type="Node2D" parent="MazeHexagon"]
 
@@ -94,7 +99,7 @@ frame = 6
 visible = false
 modulate = Color( 0.270588, 0.490196, 0.913725, 1 )
 script = ExtResource( 6 )
-size = Vector2( 31, 18 )
+size = Vector2( 25, 15 )
 
 [node name="Triangles" type="Node2D" parent="MazeTriangle"]
 
@@ -184,8 +189,3 @@ frame = 2
 texture = ExtResource( 10 )
 hframes = 4
 frame = 3
-
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2( 78, 62 )
-current = true
-zoom = Vector2( 0.25, 0.25 )

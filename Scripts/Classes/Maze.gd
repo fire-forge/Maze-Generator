@@ -31,6 +31,7 @@ class Cell:
 func _ready() -> void:
 	# Seed and RandomNumberGenerator
 	if generation_seed == 0:
+		randomize()
 		generation_seed = randi()
 	rng = RandomNumberGenerator.new()
 	rng.seed = generation_seed
@@ -38,6 +39,8 @@ func _ready() -> void:
 #   FUNCTIONS   #
 
 func generate_maze() -> void:
+	print("Generating " + name + " - Size: " + String(size) + ", Seed: " + String(generation_seed))
+	
 	create_cell_grid()
 	
 	# Maze generation
@@ -82,16 +85,16 @@ func generate_maze() -> void:
 func create_entrance_and_exit() -> void:
 	pass
 
-func get_direction_positions(cell: Cell) -> Array:
-	return [cell]
+func get_direction_positions(_cell: Cell) -> Array:
+	return []
 
-func get_opposite_directions(cell: Cell) -> Array:
-	return [cell]
+func get_opposite_directions(_cell: Cell) -> Array:
+	return []
 
 func visualize_maze() -> void:
 	pass
 
-#   OVERRIDE FUNCTIONS WITH DEFAULTS   #
+#   OVERRIDE FUNCTIONS WITH DEFAULT   #
 
 func create_cell_grid() -> void:
 	for x in size.x:
@@ -103,8 +106,7 @@ func create_cell_grid() -> void:
 			grid[x].append(cell)
 			cells.append(cell)
 
-# warning-ignore:unused_argument
-func get_cell_sides(position: Vector2) -> int:
+func get_cell_sides(_position: Vector2) -> int:
 	if "CELL_SIDES" in self:
 		return self.CELL_SIDES
 	else:
