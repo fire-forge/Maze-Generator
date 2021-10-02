@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/SceneScripts/MazeHexagon.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/MazeWall.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/SceneScripts/Level.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/SceneScripts/MazeSquare.gd" type="Script" id=4]
+
+[sub_resource type="TileSet" id=1]
+0/name = "Maze Wall"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=2]
+0/name = "Maze Wall"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.172549, 0.172549, 0.172549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MazeSquare" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="MazeSquare"]
+modulate = Color( 0.168627, 0.415686, 0.886275, 1 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="MazeHexagon" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="MazeHexagon"]
+visible = false
+modulate = Color( 0.168627, 0.415686, 0.886275, 1 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 16, 16 )
+cell_half_offset = 1
+format = 1
+
+[node name="Hexagons" type="Node2D" parent="MazeHexagon"]
+
+[node name="Hexagon" type="Node2D" parent="MazeHexagon"]
+
+[node name="0" type="Polygon2D" parent="MazeHexagon/Hexagon"]
+polygon = PoolVector2Array( 1.75, -3, 2.31, -4, -2.31, -4, -1.75, -3 )
+
+[node name="1" type="Polygon2D" parent="MazeHexagon/Hexagon"]
+rotation = 1.0472
+polygon = PoolVector2Array( 1.75, -3, 2.31, -4, -2.31, -4, -1.75, -3 )
+
+[node name="2" type="Polygon2D" parent="MazeHexagon/Hexagon"]
+rotation = 2.0944
+polygon = PoolVector2Array( 1.75, -3, 2.31, -4, -2.31, -4, -1.75, -3 )
+
+[node name="3" type="Polygon2D" parent="MazeHexagon/Hexagon"]
+rotation = 3.14159
+polygon = PoolVector2Array( 1.75, -3, 2.31, -4, -2.31, -4, -1.75, -3 )
+
+[node name="4" type="Polygon2D" parent="MazeHexagon/Hexagon"]
+rotation = 4.18879
+polygon = PoolVector2Array( 1.75, -3, 2.31, -4, -2.31, -4, -1.75, -3 )
+
+[node name="5" type="Polygon2D" parent="MazeHexagon/Hexagon"]
+rotation = 5.23599
+polygon = PoolVector2Array( 1.75, -3, 2.31, -4, -2.31, -4, -1.75, -3 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 78, 62 )
+current = true
+zoom = Vector2( 0.2, 0.2 )
