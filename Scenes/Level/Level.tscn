@@ -46,7 +46,6 @@ current = true
 zoom = Vector2( 0.25, 0.25 )
 
 [node name="MazeSquare" type="Node2D" parent="."]
-visible = false
 modulate = Color( 0.270588, 0.490196, 0.913725, 1 )
 script = ExtResource( 4 )
 
@@ -121,6 +120,7 @@ hframes = 4
 frame = 3
 
 [node name="MazeOctagon" type="Node2D" parent="."]
+visible = false
 modulate = Color( 0.270588, 0.490196, 0.913725, 1 )
 script = ExtResource( 9 )
 
